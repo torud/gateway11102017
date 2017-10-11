@@ -1,0 +1,6 @@
+{
+      "name": "Sauna WebApp",
+      "short_name": "Sauna",
+      "display": "standalone",
+      "orientation": "portrait"
+}

@@ -1,0 +1,6 @@
+{
+      "name": "KannMotion WebApp",
+      "short_name": "KannMotion",
+      "display": "standalone",
+      "orientation": "portrait"
+}

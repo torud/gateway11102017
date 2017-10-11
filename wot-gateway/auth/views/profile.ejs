@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Thing Profile</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/docs.min.css">
+    <style class="anchorjs"></style>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+</head>
+
+<body>
+    <div class="bs-docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <div class="container bs-docs-container">
+                <h1>Profile Page</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-md-9" role="main">
+                <div class="bs-docs-section">
+                    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                    <a href="/editProfile" class="btn btn-default btn-sm">Edit your profile</a>
+                    <a href="/" class="btn btn-default btn-sm">Root page</a>
+                    <a href="/application" class="btn btn-default btn-sm">Application</a>
+
+                    <p>
+                        <!-- show any messages that come back with authentication -->
+                        <% if (message.length > 0) { %>
+                            <div class="alert alert-success">
+                                <%= message %>
+                            </div>
+                            <% } %>
+                    </p>
+
+                    <% if (user) { %>
+                        <h3><span class="fa fa-user"></span> Your ID:
+                            <%= user.id %>
+                        </h3>
+                        <% } %>
+                            <p>
+                                Access granted!<br/> You can now interact with the Web Thing<br/>
+                                <br/>
+                            </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bs-docs-footer" role="contentinfo">
+        <div class="container">
+
+            <p>NTB Interstate University of Applied Sciences of Technology Buchs</p>
+
+        </div>
+    </footer>
+</body>
+
+</html>

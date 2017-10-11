@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Connect to WiFi</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/docs.min.css">
+	<style class="anchorjs"></style>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+</head>
+
+<body>
+	<div class="bs-docs-header" id="content" tabindex="-1">
+		<div class="container">
+			<div class="container bs-docs-container">
+				<h1>Connect to an existing WiFi</h1>
+				<p>Let the Web Thing be part of your wireless network</p>
+			</div>
+		</div>
+	</div>
+	<div class="container bs-docs-container">
+		<div class="row">
+			<div class="col-md-9" role="main">
+				<div class="bs-docs-section">
+					<a href="/login" class="btn btn-default btn-sm">Login</a>
+
+					<p>
+						<!-- show any messages that come back with authentication -->
+						<% if (message.length > 0) { %>
+							<div class="alert alert-danger">
+								<%= message %>
+							</div>
+							<% } %>
+					</p>
+
+					<form action="/connectWiFi" method="post" autocomplete="on">
+						<div class="form-group">
+							<label>SSID:</label>
+							<input type="text" class="form-control" name="ssid" placeholder="The name of the WiFi" required="required" />
+						</div>
+						<div class="form-group">
+							<label>Password:</label>
+							<input type="password" class="form-control" name="password" placeholder="The password (PSK) to the WiFi" required="required"
+							/>
+						</div>
+						<div>
+							<input type="submit" value="Submit" />
+						</div>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="bs-docs-footer" role="contentinfo">
+		<div class="container">
+
+			<p>NTB Interstate University of Applied Sciences of Technology Buchs</p>
+
+		</div>
+	</footer>
+</body>
+
+</html>

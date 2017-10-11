@@ -1,0 +1,204 @@
+{
+  "@context": "http://schema.org/Product",
+  "@id": "https://sauna.local:8484",
+  "name": "WoT-Gateway Sauna",
+  "description": "A Web of Things Gateway for controlling a sauna from Adlos AG.",
+  "tags": [
+    "Sauna",
+    "NanoPi",
+    "WoT"
+  ],
+  "customFields": {
+    "hostname": "sauna.local",
+    "port": 8484,
+    "secure": true,
+    "generateNewAPIToken": true,
+    "dataArraySize": 30
+  },
+  "links": {
+    "product": {
+      "link": "http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO",
+      "title": "Product this Web Thing is based on"
+    },
+    "properties": {
+      "link": "/properties",
+      "title": "List of Properties",
+      "resources": {
+        "sauna": {
+          "name": "Sauna",
+          "description": "Sauna from Adlos AG",
+          "values": {
+            "targetTemp": {
+              "name": "target temperature",
+              "description": "the set temperature of the sauna",
+              "unit": "°C",
+              "customFields": {}
+            },
+            "targetHum": {
+              "name": "target humidity",
+              "description": "the set humidity of the sauna",
+              "unit": "%",
+              "customFields": {}
+            },
+            "currTemp": {
+              "name": "current temperature",
+              "description": "the current temperature of the sauna",
+              "unit": "°C",
+              "customFields": {}
+            },
+            "currHum": {
+              "name": "current humidity",
+              "description": "the current humidity of the sauna",
+              "unit": "%",
+              "customFields": {}
+            },
+            "duration": {
+              "name": "duration",
+              "description": "the remaining time of the current sauna session",
+              "unit": "min",
+              "customFields": {}
+            },
+            "light": {
+              "name": "light",
+              "description": "the brightness of the light in the sauna",
+              "unit": "-",
+              "customFields": {}
+            },
+            "clock": {
+              "name": "clock",
+              "description": "the current time",
+              "unit": "-",
+              "customFields": {}
+            },
+            "relais": {
+              "name": "relais",
+              "description": "the 6 relais of the sauna for various devices which can be turned on/off via bit set",
+              "unit": "-",
+              "customFields": {}
+            },
+            "state": {
+              "name": "current state",
+              "description": "the current state of the sauna",
+              "unit": "-",
+              "customFields": {}
+            },
+            "error": {
+              "name": "error number",
+              "description": "the most recent error number of the sauna",
+              "unit": "-",
+              "customFields": {}
+            },
+            "inUse": {
+              "name": "in use",
+              "description": "indicates whether the sauna is in use",
+              "unit": "bool",
+              "customFields": {}
+            },
+            "bathOn": {
+              "name": "bath on",
+              "description": "indicates whether the steam bath of the sauna is in use",
+              "unit": "bool",
+              "customFields": {}
+            },
+            "libVersion": {
+              "name": "library version",
+              "description": "the library version of the sauna control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "puVersion": {
+              "name": "power unit version",
+              "description": "the power unit version of the sauna control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "bridgeVersion": {
+              "name": "bridge version",
+              "description": "the bridge version of the sauna control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "isOnline": {
+              "name": "is online",
+              "description": "indicates whether the sauna is online, i.e. turned on",
+              "unit": "boolean",
+              "customFields": {}
+            },
+            "lastResponse": {
+              "name": "last response",
+              "description": "the last response received from the sauna",
+              "unit": "-",
+              "customFields": {}
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "link": "/actions",
+      "title": "Actions of this Web Thing",
+      "resources": {
+        "sendCommand": {
+          "name": "send command",
+          "description": "send a command to the sauna",
+          "values": {
+            "par": {
+              "type": {
+                "rw": {
+                  "type": "number",
+                  "required": true
+                },
+                "id": {
+                  "type": "number",
+                  "required": true
+                },
+                "val": {
+                  "type": "number",
+                  "required": false
+                }
+              },
+              "required": false
+            },
+            "cmd": {
+              "type": {
+                "id": {
+                  "type": "number",
+                  "required": true
+                },
+                "temp": {
+                  "type": "number",
+                  "required": false
+                },
+                "hum": {
+                  "type": "number",
+                  "required": false
+                },
+                "dur": {
+                  "type": "number",
+                  "required": false
+                },
+                "val": {
+                  "type": "string",
+                  "required": false
+                }
+              },
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "type": {
+      "link": "http://model.webofthings.io/",
+      "title": "Instance type of the Pi"
+    },
+    "help": {
+      "link": "http://adlos.com/",
+      "title": "Documentation"
+    },
+    "ui": {
+      "link": "/",
+      "title": "User Interface"
+    }
+  }
+}

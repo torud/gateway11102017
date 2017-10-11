@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>KannMotion</title>
+    <link rel="stylesheet" href="kannmotion/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="kannmotion/assets/css/styles.css">
+    <link rel="manifest" href="kannmotion/assets/manifest.json">
+</head>
+
+<body>
+    <div></div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-link" href="#"><img src="kannmotion/assets/img/adlos_kannmotion.jpg"></a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="presentation"><a href="/profile">Profile Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-12 colClass">
+                            <div class="form-group">
+                                <form id="configuration">
+                                    <h2>Konfiguration </h2>
+                                    <p>Zur Konfiguration kann hier der gewünschte Motor ausgewählt werden. </p>
+                                    <select class="form-control" id="configOptions">
+                                        <option value="c17_11H">Kann Motion 17 11H2045X4-095-001</option>
+                                        <option value="c17_24H">Kann Motion 17 24H2085-200-4A</option>
+                                        <option value="c24_11H">Kann Motion 24 11H2045X4-095-001</option>
+                                        <option value="c24_24H" selected="">Kann Motion 24 24H2085-200-4A</option>
+                                    </select>
+                                    <button class="btn btn-default buttonFull" type="button" id="buttonConfig">Konfigurieren </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 colClass">
+                            <div class="form-group">
+                                <form>
+                                    <h2>Befehle </h2>
+                                    <p>Hier können die sich auf dem Motor befindliche Sequenz gelöscht werden oder die KannMotion
+                                        Steuerung zurückgesetzt werden, was die aktuell auf dem Motor gespeicherte Sequenz
+                                        ausführen lässt. </p>
+                                    <button class="btn btn-default buttonHalf" type="button" id="buttonDelSeq">Sequenz löschen</button>
+                                    <button class="btn btn-default buttonHalf" type="button" id="buttonReset">Reset </button>
+                                    <p>Hier können komplette, syntaktisch korrekte Befehle im JSON Format eingegeben und gesendet
+                                        werden: </p>
+                                    <input class="form-control" type="text" id="plainJSONSeq" placeholder="JSON-Befehl">
+                                    <button class="btn btn-default buttonFull" type="button" id="buttonSendJSONCommand">Sende Befehl</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 colClass">
+                            <div class="form-group">
+                                <form id="sequences">
+                                    <h2>Sequenzen </h2>
+                                    <p>Hier können Sequenzen für den Motor zusammengestellt werden. Aktion auswählen, Werte
+                                        eintragen und dann hinzufügen. Wenn alle gewünschten Aktionen hinzugefügt sind, kann
+                                        die Sequenz an den Motor gesendet werden.<br/> Wenn die Sequenz auf den Motor geladen
+                                        wurde, kann die Sequenz ausgeführt werden. </p>
+                                    <div id="sequenceInputs">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select class="form-control" id="seqCom">
+                                                    <option value="s1" selected="">Gehe zu Position</option>
+                                                    <option value="s4">Drehen</option>
+                                                    <option value="s12">Warte</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6" id="seqInputFields"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default buttonFull" type="button" id="buttonAddSeq">Hinzufügen </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default buttonFull" type="button" id="buttonSendSeq">auf Motor laden </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default buttonFull" type="button" id="buttonRun">Ausführen </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default buttonFull" type="button" disabled="true" id="buttonRemoveSequence">Kommando löschen </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default buttonFull" type="button" disabled="true" id="buttonChangeSequence">Kommando ändern</button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default buttonFull" type="button" id="buttonClearSequence">Alle Zeilen löschen</button>
+                                        </div>
+                                    </div>
+                                    <p id="currentSequence" class="displayText"> </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-12 colClass">
+                            <div class="form-group">
+                                <form id="propertiesForm">
+                                    <h2>Eigenschaften </h2>
+                                    <p>Hier sind die <a href="/properties">Eigenschaften</a> der KannMotion-Steuerung zu sehen.
+                                    </p>
+                                    <button class="btn btn-default buttonFull" type="button" id="buttonUpdateInfo">Infos aktualisieren</button>
+                                    <dl id="properties" class="dl-horizontal displayText" style="min-height:50px"></dl>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 colClass">
+                            <div class="form-group">
+                                <form id="logging">
+                                    <h2>Logging </h2>
+                                    <p>Gesendete Kommandos:</p>
+                                    <button class="btn btn-default buttonFull" type="button" id="buttonClearLog">Lösche Log</button>
+                                    <p id="sentCommands" class="displayText"> </p>
+                                    <p>Status der letzten gesendeten Kommandos:</p>
+                                    <p id="answerStatus" class="displayText" style="min-height:50px"> </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="kannmotion/assets/js/jquery.min.js"></script>
+    <script src="kannmotion/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="kannmotion/assets/js/KannMotionApplication.js"></script>
+</body>
+
+</html>

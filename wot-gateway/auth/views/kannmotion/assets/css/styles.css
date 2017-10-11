@@ -1,0 +1,64 @@
+.buttonHalf {
+  width:49.6%;
+}
+
+@media (max-width:767px) {
+  .buttonHalf {
+    width:49.4%;
+  }
+}
+
+.buttonFull {
+  width:100%;
+}
+
+.displayText {
+  background-color:#c6c6c6;
+  border-radius:5px;
+  padding:10px;
+}
+
+#currentSequence {
+  height:200px;
+  overflow: auto;
+}
+
+#sentCommands {
+  overflow:auto;
+  max-height:200px;
+  min-height:200px;
+}
+
+.btn {
+  margin-bottom:10px;
+  margin-top:10px;
+}
+
+@media (max-width:991px) {
+  .btn {
+    margin-top:0px;
+    margin-bottom:0px;
+  }
+}
+
+@media (max-width:991px) {
+  .displayText {
+    margin-top:10px;
+  }
+}
+
+.colClass {
+  border:solid;
+  border-color:#ffffff;
+  border-radius:10px;
+  background-color:#e6e4e4;
+}
+
+.jsDropdown {
+  width:100%;
+}
+
+#seqCom {
+  margin-bottom:10px;
+}
+

@@ -1,0 +1,199 @@
+{
+  "@context": "http://schema.org/Product",
+  "@id": "https://kannmotion.local:8484",
+  "name": "WoT-Gateway KannMotion",
+  "description": "A Web of Things Gateway for configurating a motor via KannMotion from Adlos AG.",
+  "tags": [
+    "KannMotion",
+    "NanoPi",
+    "WoT"
+  ],
+  "customFields": {
+    "hostname": "kannmotion.local",
+    "port": 8484,
+    "secure": true,
+    "generateNewAPIToken": true,
+    "dataArraySize": 30
+  },
+  "links": {
+    "product": {
+      "link": "http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO",
+      "title": "Product this Web Thing is based on"
+    },
+    "properties": {
+      "link": "/properties",
+      "title": "List of Properties",
+      "resources": {
+        "motor": {
+          "name": "KannMotion",
+          "description": "electric step motor, controlled via KannMotion",
+          "values": {
+            "maxSpeed": {
+              "name": "maximum speed",
+              "description": "the maximum speed allowed by the motor",
+              "unit": "1/s",
+              "customFields": {}
+            },
+            "maxAccel": {
+              "name": "maximum acceleration",
+              "description": "the maximum acceleration allowed by the motor",
+              "unit": "1/s^2",
+              "customFields": {}
+            },
+            "maxDecel": {
+              "name": "maximum deceleration",
+              "description": "the maximum deceleration allowed by the motor",
+              "unit": "1/s^2",
+              "customFields": {}
+            },
+            "intersectionSpeed": {
+              "name": "intersection speed",
+              "description": "the intersection speed of the motor",
+              "unit": "stp/s",
+              "customFields": {}
+            },
+            "startGradient": {
+              "name": "start gradient",
+              "description": "the start gradient of the motor",
+              "unit": "% stp/s",
+              "customFields": {}
+            },
+            "endGradient": {
+              "name": "end gradient",
+              "description": "the end gradient of the motor",
+              "unit": "% stp/s",
+              "customFields": {}
+            },
+            "pwm": {
+              "name": "pulse-width modulation ratio",
+              "description": "the pulse-width modulation ratio of the motor",
+              "unit": "%",
+              "customFields": {}
+            },
+            "lastResponse": {
+              "name": "last response",
+              "description": "the last response received from the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "lastACK": {
+              "name": "last ACK",
+              "description": "the last ACK/NACK received from the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "isOnline": {
+              "name": "is online",
+              "description": "indicates whether the KannMotion control is online, i.e. turned on",
+              "unit": "boolean",
+              "customFields": {}
+            },
+            "position": {
+              "name": "position",
+              "description": "the last known position of the rotor",
+              "unit": "-",
+              "customFields": {}
+            },
+            "errorNumber": {
+              "name": "error number",
+              "description": "the most recent error number of the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "errorCounter": {
+              "name": "error counter",
+              "description": "the error counter of the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "prodVersion": {
+              "name": "product version",
+              "description": "the product version number of the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "fwVersion": {
+              "name": "firmware version",
+              "description": "the firmware version number of the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            },
+            "sequenceVersion": {
+              "name": "sequence version",
+              "description": "the current sequence version number of the KannMotion control",
+              "unit": "-",
+              "customFields": {}
+            }
+          },
+          "tags": [
+            "motor",
+            "step",
+            "electric"
+          ]
+        }
+      }
+    },
+    "actions": {
+      "link": "/actions",
+      "title": "Actions of this Web Thing",
+      "resources": {
+        "sendCommand": {
+          "name": "send command",
+          "description": "send a command to the KannMotion control of the motor",
+          "values": {
+            "par": {
+              "type": {
+                "cmd": {
+                  "type": "number",
+                  "required": true
+                },
+                "id": {
+                  "type": "number",
+                  "required": false
+                },
+                "val": {
+                  "type": "number",
+                  "required": false
+                }
+              },
+              "required": false
+            },
+            "sys": {
+              "type": "number",
+              "required": false
+            },
+            "rom": {
+              "type": {
+                "frm": {
+                  "type": "array",
+                  "required": true
+                },
+                "val": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              "required": false
+            },
+            "cmd": {
+              "type": "number",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "type": {
+      "link": "http://model.webofthings.io/",
+      "title": "Instance type of the Pi"
+    },
+    "help": {
+      "link": "http://adlos.com/",
+      "title": "Documentation"
+    },
+    "ui": {
+      "link": "/",
+      "title": "User Interface"
+    }
+  }
+}

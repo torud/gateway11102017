@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/docs.min.css">
+    <style class="anchorjs"></style>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div class="bs-docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <div class="container bs-docs-container">
+                <h1>Error</h1>
+                <p>Something doesn't work</p>
+            </div>
+        </div>
+    </div>
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-md-9" role="main">
+                <div class="bs-docs-section">
+                    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                    <a href="/profile" class="btn btn-default btn-sm">Your profile</a>
+                    <a href="/" class="btn btn-default btn-sm">Root page</a>
+
+                    <p>
+                        <!-- show any messages that come back with authentication -->
+                        <% if (message.length > 0) { %>
+                            <div class="alert alert-danger">
+                                <%= message %>
+                            </div>
+                            <% } %>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bs-docs-footer" role="contentinfo">
+        <div class="container">
+
+            <p>NTB Interstate University of Applied Sciences of Technology Buchs</p>
+
+        </div>
+    </footer>
+</body>
+
+</html>
