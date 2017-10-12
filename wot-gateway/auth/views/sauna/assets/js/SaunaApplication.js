@@ -133,17 +133,27 @@ function postSendCommand(command, name, callback) {
  * @param {*} properties    the most recent properties
  */
 function displayVal(properties) {
-      var temp = properties.currTemp;
-      var hum = properties.currHum;
+      var cTemp = properties.currTemp;
+      var cHum = properties.currHum;
       var dur = properties.duration;
+
+      var tTemp = properties.targetTemp
+      var tHum = properties.targetHum;
+
       var light = properties.light;
       var use = properties.inUse;
       var isOnline = properties.isOnline;
-      td.getElementById('currTemp').value = temp;
-      td.getElementById('currHum').value = hum;
+      console.log(use);
+      td.getElementById('currTemp').value = cTemp;
+      td.getElementById('currHum').value = cHum;
       td.getElementById('currDur').value = dur;
+
+      td.getElementById('targetTemp').value = tTemp;
+      td.getElementById('targetHumidity').value = tHum;
+      td.getElementById('targetDuration').value = dur;
+
       td.getElementById('levelLight').value = light;
-      td.getElementById('switchSauna').value = use;
+      td.getElementById('switchSauna').checked = use;
       if (isOnline == true) {
             $('#isOnline').html('Online');
             td.getElementById('isOnline').style.color = '#00d300';
@@ -159,20 +169,29 @@ function displayVal(properties) {
 function getSelectedOption() {
       var selectedOption = td.getElementById('selectBtn').value;
       switch (selectedOption) {
-            case 'finarium':
+            case '1':  //finarium
                   tarTemp = 90;
                   tarHum = 15;
                   tarDur = 30;
+                  setReadonly(true);
                   break;
-            case 'dampfbad':
+            case '2':  //dampfbad
                   tarTemp = 50;
                   tarHum = 50;
                   tarDur = 30;
+                  setReadonly(true);
                   break;
-            case 'warmluftbad':
+            case '3':   //warmluftbad
                   tarTemp = 45;
                   tarHum = 15;
                   tarDur = 30;
+                  setReadonly(true);
+                  break;
+            case '4':   //eigener
+                  tarTemp = 40;
+                  tarHum = 40;
+                  tarDur = 40;
+                  setReadonly(false);
                   break;
             default:
                   tarTemp = 42;
@@ -184,3 +203,13 @@ function getSelectedOption() {
       td.getElementById('targetHum').value = tarHum;
       td.getElementById('targetDur').value = tarDur;
 } // getSelectedOption
+
+/**
+ * Set target temp, hum, dur for readonly
+ * @param {*} readable boolean
+ */
+function setReadonly(readable) {
+      $('#targetTemp').attr("readonly", readable);
+      $('#targetHum').attr("readonly", readable);
+      $('#targetDur').attr("readonly", readable);
+}

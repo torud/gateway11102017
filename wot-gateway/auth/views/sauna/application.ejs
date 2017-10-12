@@ -35,9 +35,10 @@
                 </div>
                 <div class="col-md-12 col-xs-8" id="colSelect">
                     <select class="input-sm" id="selectBtn" style="height:41px;width:100%;background-color:#222222;color:rgb(255,254,254);">
-                        <option value="finarium">Finarium</option>
-                        <option value="dampfbad">Dampfbad</option>
-                        <option value="warmluftbad">Warmluftbad</option>
+                        <option value="1">Finarium</option>
+                        <option value="2">Dampfbad</option>
+                        <option value="3">Warmluftbad</option>
+                        <option value="4">Eigener</option>
                     </select>
                 </div>
             </div>
@@ -49,7 +50,7 @@
                     <p class="colAlignCenter textDesc" style="color:rgb(252,251,251);">Aktuell</p>
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <p class="colAlignCenter textDesc" style="color:rgb(252,251,251);">Soll </p>
+                    <p class="colAlignCenter textDesc" style="color:rgb(252,251,251);">Soll</p>
                 </div>
             </div>
             <div class="row colLeftValign">
@@ -57,10 +58,10 @@
                     <p style="color:rgb(252,251,251);">Temperatur in °C</p>
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <input class="input-lg numInput" name="tempActual" readonly="" min="0" max="150" id="currTemp">
+                    <input class="input-lg numInput" name="tempActual" readonly="true" min="0" max="150" id="currTemp">
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <input class="input-lg numInput" type="number" name="tempSet" min="50" max="100" step="5" id="targetTemp">
+                    <input class="input-lg numInput" type="number" name="tempSet" readonly="false" min="50" max="100" step="5" id="targetTemp">
                 </div>
             </div>
             <div class="row colLeftValign">
@@ -68,10 +69,10 @@
                     <p style="color:rgb(252,251,251);">Luftfeuchtigkeit in %</p>
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <input class="input-lg numInput" name="tempActual" readonly="" min="0" max="150" id="currHum">
+                    <input class="input-lg numInput" name="tempActual" readonly="true" min="0" max="150" id="currHum">
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <input class="input-lg numInput" type="number" name="tempSet" min="0" max="100" step="5" id="targetHum">
+                    <input class="input-lg numInput" type="number" name="tempSet" readonly="false" min="0" max="100" step="5" id="targetHum">
                 </div>
             </div>
             <div class="row colLeftValign">
@@ -79,10 +80,10 @@
                     <p style="color:rgb(252,251,251);">Gangdauer in min</p>
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <input class="input-lg numInput" name="tempActual" readonly="" min="0" max="150" id="currDur">
+                    <input class="input-lg numInput" name="tempActual" readonly="true" min="0" max="150" id="currDur">
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <input class="input-lg numInput" type="number" name="tempSet" min="5" max="120" step="5" id="targetDur">
+                    <input class="input-lg numInput" type="number" name="tempSet" readonly="false" min="5" max="120" step="5" id="targetDur">
                 </div>
             </div>
             <div class="row colLeftValign">
